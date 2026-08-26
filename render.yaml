@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: esociety-app
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false # You will provide this in the Render dashboard
+      - key: JWT_SECRET
+        sync: false # You will provide this in the Render dashboard
