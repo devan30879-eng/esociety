@@ -23,7 +23,7 @@ export const SocketProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     // Only connect when user is authenticated
     if (!isAuthenticated || !user) return;
 
-    const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
+    const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || (import.meta.env.PROD ? '/' : 'http://localhost:5000');
 
     // Initialize Socket.IO connection
     const newSocket = io(SOCKET_URL, {
