@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  esociety-app:
+    build: .
+    container_name: esociety-monolith
+    restart: always
+    ports:
+      - "80:8080"
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+      # You MUST replace these with your actual values when running on the server
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
